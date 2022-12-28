@@ -1,9 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Odin-Project private event assignment. Goal to work with associations, to fully understand one to many relationships.
 
 * Ruby version
 
