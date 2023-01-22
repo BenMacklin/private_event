@@ -1,1 +1,11 @@
-"All events listed, below"
+<h1>"All events listed, below"</h1>
+
+<div><%  @events.each do |event|  %>
+<%= link_to event.title, event_path(event) %>
+<% end %></div>
+
+<%= link_to "Sign-in", new_user_session_path %>
+<%= button_to "Sign-out", destroy_user_session_path, :method => "delete" %>
+<%= link_to "Sign-up", new_user_registration_path %>
+<%= link_to "Profile", user_path(current_user)           %>
+<%= link_to "New Event", new_event_path  %>

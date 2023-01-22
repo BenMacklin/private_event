@@ -1,0 +1,13 @@
+<%= @event.title %>
+<%= @event.creator.email %>
+<%= @event.location  %>
+<%= @event.itenary   %>
+<%= @event.date_time %>
+
+
+<%= button_to "Attendance", attendances_path, params: {event_id: @event.id} %>
+
+<h2>"All attendees" </h2>
+<% @event.attendees.each do |a|  %>
+<%= a.email %>
+<% end %>
