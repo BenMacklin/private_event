@@ -1,14 +1,20 @@
 <h1><%="#{@user.email}'s Hosted events"%><h1>
 
 <h5><%@user.events.each do |event|%><h5>
-<%=event.itenary%>
-<%=event.location%>
+  <%=event.itenary%>
+  <%=event.location%>
 <%=event.date_time%>
 <% end %>
 
-<h2><%="#{@user.email}'s Attended events"%></h2>
+<h2><%="#{@user.email}'s Attended events" %></h2>
 
-<%@user.attendances.each do |attendances|%>
-<div><%=attendances.event.title%></div>
-<div><%=attendances.event.itenary%></div>
+<h3>Future events</h3>
+<% @user.attended_events.where('date_time > ? ', Date.today).each do |past|  %>
+<div><%=past.title%></div>
+<div><%=past.itenary%></div>
+<% end %>
+<h3>Past events</h3>
+<% @user.attended_events.where('date_time < ? ', Date.today).each do |future|  %>
+<div><%=future.title%></div>
+<div><%=future.itenary%></div>
 <% end %>
